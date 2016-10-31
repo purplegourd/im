@@ -63,7 +63,7 @@ while ($socket) {
         do{
             $data = socket_read($read_sock, MAX_LEN, PHP_NORMAL_READ);
             var_dump($data);
-            if($data === false || $data == "" || strlen($data) == 0){
+            if($data === false){
                 // remove client for $clients array
                 $key = array_search($read_sock, $clients);
                 unset($clients[$key]);
