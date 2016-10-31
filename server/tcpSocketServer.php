@@ -58,11 +58,11 @@ while ($socket) {
         // socket_read while show errors when the client is disconnected, so silence the error messages
         //$data = socket_read($read_sock, MAX_LEN, PHP_NORMAL_READ);
                 
-        ###
+        ### 后续用 socket_recv方法
         $recv = "";
         do{
             $data = socket_read($read_sock, MAX_LEN, PHP_NORMAL_READ);
-            var_dump($data);
+            //var_dump($data);
             if($data === false){
                 // remove client for $clients array
                 $key = array_search($read_sock, $clients);
@@ -79,7 +79,7 @@ while ($socket) {
         $data = $recv;
         ###
         
-        //var_dump(strlen($data),$data,"{=====[" . addcslashes($data, "\r\n") . "]=====}");
+        var_dump(strlen($data),$data,"{=====[" . addcslashes($data, "\r\n") . "]=====}");
         
         // check if the client is disconnected
         if ($data === false) {
