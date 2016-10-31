@@ -80,17 +80,7 @@ while ($socket) {
         ###
         
         var_dump(strlen($data),$data,"{=====[" . addcslashes($data, "\r\n") . "]=====}");
-        
-        // check if the client is disconnected
-        if ($data === false) {
-            // remove client for $clients array
-            $key = array_search($read_sock, $clients);
-            unset($clients[$key]);
-            echo "client disconnected.\n";
-            // continue to the next client to read from, if any
-            continue;
-        }
-        
+                
         // trim off the trailing/beginning white spaces
         $data = trim($data);
         
